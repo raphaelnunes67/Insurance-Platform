@@ -1,0 +1,23 @@
+meta {
+  name: Update Proposals By Id
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{BASE_ROUTE}}/api/proposals/23bc8271-b541-4f52-a3f9-9c3b4d0ee9ca
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "customerName": "VIVO",
+    "insuredAmount": 10
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

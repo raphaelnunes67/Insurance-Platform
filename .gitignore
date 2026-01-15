@@ -1,0 +1,127 @@
+# =========================================================
+# .NET / Visual Studio / Rider / VS Code - Common
+# =========================================================
+
+# Build results
+**/bin/
+**/obj/
+**/out/
+
+# User-specific files
+**/*.user
+**/*.suo
+**/*.userosscache
+**/*.sln.docstates
+
+# Visual Studio cache/options
+.vs/
+**/.vs/
+
+# Rider / JetBrains
+.idea/
+**/.idea/
+*.sln.iml
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# =========================================================
+# OS / Editor junk
+# =========================================================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Vim / Emacs / Swap
+*~
+*.swp
+*.swo
+*.tmp
+
+# =========================================================
+# Logs
+# =========================================================
+*.log
+**/logs/
+**/Logs/
+
+# =========================================================
+# Test results / coverage
+# =========================================================
+TestResults/
+**/TestResults/
+coverage/
+**/coverage/
+*.coverage
+*.coveragexml
+**/*.trx
+
+# Coverlet / ReportGenerator outputs
+**/coverage.opencover.xml
+**/coverage.cobertura.xml
+**/coverage.json
+**/report/
+**/reports/
+
+# =========================================================
+# NuGet
+# =========================================================
+# Packages folder (rare in SDK-style, but some tooling creates it)
+packages/
+**/packages/
+
+# NuGet v3 artifacts
+*.nupkg
+*.snupkg
+.nuget/
+**/.nuget/
+
+# Restore output / caches
+**/project.assets.json
+**/project.nuget.cache
+**/nuget.config.user
+
+# =========================================================
+# dotnet tools / local tools
+# =========================================================
+.dotnet/
+**/.dotnet/
+
+# =========================================================
+# Publish / artifacts
+# =========================================================
+**/publish/
+**/artifacts/
+
+# =========================================================
+# ASP.NET Core secrets & dev certs (do NOT commit)
+# =========================================================
+**/secrets.json
+**/*.pfx
+**/*.cer
+
+# =========================================================
+# App settings overrides (optional)
+# Keep appsettings.json, but ignore local overrides if you create them
+# =========================================================
+appsettings.Local.json
+**/appsettings.Local.json
+
+# =========================================================
+# Docker
+# =========================================================
+# Docker Compose overrides / env files
+docker-compose.override.yml
+.env
+**/.env
+
+# =========================================================
+# Misc
+# =========================================================
+# HTTP scratch files (if you don't want them tracked, uncomment)
+# **/*.http

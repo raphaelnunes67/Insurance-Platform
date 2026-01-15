@@ -1,0 +1,23 @@
+meta {
+  name: Create Proposal
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_ROUTE}}/api/proposals
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "customerName": "INDT",
+    "insuredAmount": "1200"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

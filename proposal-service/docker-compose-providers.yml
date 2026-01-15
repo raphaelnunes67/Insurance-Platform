@@ -1,0 +1,25 @@
+name: proposal-service-providers
+services:
+  postgres:
+    image: postgres:16.9
+    container_name: proposal_service_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: proposal_service
+      POSTGRES_USER: proposal_service
+      POSTGRES_PASSWORD: proposalservice
+      PGDATA: /var/lib/postgresql/data/pgdata
+      TZ: UTC
+      PGTZ: UTC
+    networks:
+      - app_network
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+networks:
+  app_network:
+
+volumes:
+  postgres_data:

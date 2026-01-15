@@ -1,0 +1,16 @@
+meta {
+  name: Get Proposals
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_ROUTE}}/api/proposals
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
