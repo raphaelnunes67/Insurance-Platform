@@ -1,0 +1,95 @@
+name: insurance-platform-providers
+
+services:
+  postgres_proposal_service:
+    image: postgres:16.9
+    container_name: proposal_service_postgres
+    ports:
+      - "5430:5432"
+    environment:
+      POSTGRES_DB: proposal_service
+      POSTGRES_USER: proposal_service
+      POSTGRES_PASSWORD: proposalservice
+      PGDATA: /var/lib/postgresql/data/pgdata
+      TZ: UTC
+      PGTZ: UTC
+    networks:
+      - insurance_platform_network
+    restart: always
+    volumes:
+      - postgres_proposal_service_data:/var/lib/postgresql/data
+
+  postgres_contracting_service:
+    image: postgres:16.9
+    container_name: contracting_service_postgres
+    ports:
+      - "5440:5432"
+    environment:
+      POSTGRES_DB: contracting_service
+      POSTGRES_USER: contracting_service
+      POSTGRES_PASSWORD: contractingservice
+      PGDATA: /var/lib/postgresql/data/pgdata
+      TZ: UTC
+      PGTZ: UTC
+    networks:
+      - insurance_platform_network
+    restart: always
+    volumes:
+      - postgres_contracting_service_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:9.3
+    container_name: insurance_platform_pgadmin
+    ports:
+      - "15432:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=insurance_platform@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=insurance_platform
+      - PGADMIN_CONFIG_DEFAULT_LANGUAGE="pt_BR"
+    depends_on:
+      - postgres_proposal_service
+      - postgres_contracting_service
+    networks:
+      - insurance_platform_network
+    restart: always
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: insurance_platform_rabbit
+    hostname: rabbit
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - insurance_platform_network
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: insurance_platform
+      RABBITMQ_DEFAULT_PASS: insurance_platform      
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+      - ./rabbit_definitions.json:/etc/rabbitmq/rabbit_definitions.json:ro
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+
+  portainer:
+    image: portainer/portainer-ce:linux-amd64-2.0.1
+    container_name: insurance_platform_portainer
+    ports:
+      - "9000:9000"
+      - "9443:9443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    networks:
+      - insurance_platform_network
+    restart: always
+
+networks:
+  insurance_platform_network:
+    external: true
+
+volumes:
+  portainer_data:
+  rabbitmq_data:
+  postgres_proposal_service_data:
+  postgres_contracting_service_data:
