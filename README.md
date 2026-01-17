@@ -25,7 +25,7 @@ To ensure reliability and decoupling, we utilize **RabbitMQ** with a specific to
 # Databases & Schemas
 
 <p align="center">
-<img src="docs/insurance_platform-databases.png" alt="Architecture Diagram" width="700">
+<img src="docs/insurance_platform-databases.png" alt="Architecture Diagram" width="400">
 </p>
 
 Following the **Database-per-Service** pattern, each microservice manages its own data persistence:
