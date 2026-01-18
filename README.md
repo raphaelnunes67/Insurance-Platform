@@ -14,7 +14,7 @@ The system is designed to decouple the proposal creation from the contract gener
 # RabbitMQ Implementation
 
 <p align="center">
-<img src="docs/insurance_platform-rabbit.png" alt="Architecture Diagram" width="400">
+<img src="docs/insurance_platform-rabbit.png" alt="Architecture Diagram" width="280">
 </p>
 
 To ensure reliability and decoupling, we utilize **RabbitMQ** with a specific topology:
@@ -54,7 +54,7 @@ The project is structured as follows:
 ├── proposal-service/           # .NET 8 Web API (Hexagonal Architecture)
 ├── docker-compose-providers.yml # Infrastructure (Postgres, RabbitMQ, Portainer, PgAdmin)
 ├── docs/                       # Project documentation and architectural decisions
-├── requests/                   # HTTP files for testing API endpoints
+├── requests/                   # HTTP files for testing API endpoints (Bruno)
 ├── rabbit_definitions.json     # RabbitMQ Topology (Exchanges, Queues, Bindings)
 ├── rabbitmq.conf               # RabbitMQ Configuration
 └── README.md

@@ -1,18 +1,18 @@
 meta {
   name: Update Proposals Status By Id
   type: http
-  seq: 7
+  seq: 6
 }
 
 patch {
-  url: {{BASE_ROUTE}}/api/proposals/23bc8271-b541-4f52-a3f9-9c3b4d0ee9ca/status
+  url: {{BASE_ROUTE}}/api/proposals/d0fdd2ec-c81d-44ea-a912-67ae2212f45f/status
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "status": "Approved"
+    "newStatus": "Approved"
   }
 }
 

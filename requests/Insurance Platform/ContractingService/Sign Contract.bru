@@ -1,0 +1,22 @@
+meta {
+  name: Sign Contract
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{BASE_ROUTE_CONTRACTING}}/api/contracts/d0fdd2ec-c81d-44ea-a912-67ae2212f45f/signed-date
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "contractedAt": "2026-01-17T22:48:42.886Z"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
